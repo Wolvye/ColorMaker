@@ -3,5 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ColorMaker.MainPage">
 
-   
+    <ContentPage.Resources>
+        <Color x:Key="Primary">#ab3527</Color>
+        <Color x:Key="Second">#775752</Color>
+        <Color x:Key="Tertiary">#705c2e</Color>
+    </ContentPage.Resources>
+
+    <Grid x:Name="Container" BackgroundColor="Black">
+        <Frame Margin="10,0,10,0" 
+               VerticalOptions="Center" 
+               BorderColor="White" 
+               CornerRadius="5" 
+               HeightRequest="80"
+               BackgroundColor="{StaticResource Primary}"/>
+    </Grid>
+
 </ContentPage>
