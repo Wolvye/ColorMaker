@@ -11,11 +11,60 @@
 
     <Grid x:Name="Container" BackgroundColor="Black">
         <Frame Margin="10,0,10,0" 
-               VerticalOptions="Center" 
-               BorderColor="White" 
-               CornerRadius="5" 
-               HeightRequest="80"
-               BackgroundColor="{StaticResource Primary}"/>
+               VerticalOptions="Center">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="Color Maker" />
+
+                <Label Text="Red Value: "/>
+                <Label x:Name="lblRed"/>
+                <Slider x:Name="sldRed"
+                        ThumbColor="{StaticResource Primary}"
+                        MaximumTrackColor="{StaticResource Second}"
+                        MinimumTrackColor="{StaticResource Tertiary}"
+                        ValueChanged="Slider_ValueChanged"
+                        Maximum="255"
+                        />
+
+                <Label Text="Green Value: "/>
+                <Label x:Name="lblGreen"/>
+                <Slider x:Name="sldGreen"
+                        ThumbColor="{StaticResource Primary}"
+                        MaximumTrackColor="{StaticResource Second}"
+                        MinimumTrackColor="{StaticResource Tertiary}"
+                        ValueChanged="Slider_ValueChanged"
+                        Maximum="255"/>
+
+                <Label Text="Blue Value: "/>
+                <Label x:Name="lblBlue"/>
+                <Slider x:Name="sldBlue"
+                        ThumbColor="{StaticResource Primary}"
+                        MaximumTrackColor="{StaticResource Second}"
+                        MinimumTrackColor="{StaticResource Tertiary}"
+                        ValueChanged="Slider_ValueChanged"
+                        Maximum="255"/>
+                
+                <Frame CornerRadius="25" HorizontalOptions="Center">
+                    <HorizontalStackLayout>
+                        <Label x:Name="lblHex"
+                           HorizontalTextAlignment="End"
+                           Text="Hex Value: #000000"
+                           VerticalOptions="Center" />
+                        <ImageButton Margin="10,0,0,0"
+                                     HeightRequest="25"
+                                     Source="copy.svg"
+                                     VerticalOptions="Center"
+                                     WidthRequest="25"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                <Button x:Name="btnRandom"
+                        BackgroundColor="{StaticResource Primary}"
+                        Text="Generate Random Color"/>
+            </VerticalStackLayout>
+        </Frame>
     </Grid>
 
 </ContentPage>
