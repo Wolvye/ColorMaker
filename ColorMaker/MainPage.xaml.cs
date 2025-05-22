@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics;
+
 namespace ColorMaker
 {
     public partial class MainPage : ContentPage
@@ -28,10 +30,23 @@ namespace ColorMaker
 
         private void SetColor(Color color)
         {
-            btnRandom.BackgroundColor = color;
+            Debug.WriteLine(color.ToString());
             Container.BackgroundColor = color;
             lblHex.Text = color.ToHex();
             
+        }
+
+        private void btnRandom_Clicked(object sender, EventArgs e)
+        {
+            var random = new Random();
+            
+            var color = Color.FromRgb(random.Next(0,256),random.Next(0,256),random.Next(0,256));
+
+            SetColor(color);
+
+            sldRed.Value = color.Red;
+            sldGreen.Value = color.Green;
+            sldBlue.Value = color.Blue;
         }
     }
 }

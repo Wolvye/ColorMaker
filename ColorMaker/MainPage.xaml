@@ -26,7 +26,7 @@
                         MaximumTrackColor="{StaticResource Second}"
                         MinimumTrackColor="{StaticResource Tertiary}"
                         ValueChanged="Slider_ValueChanged"
-                        Maximum="255"
+                        Maximum="256"
                         />
 
                 <Label Text="Green Value: "/>
@@ -36,7 +36,7 @@
                         MaximumTrackColor="{StaticResource Second}"
                         MinimumTrackColor="{StaticResource Tertiary}"
                         ValueChanged="Slider_ValueChanged"
-                        Maximum="255"/>
+                        Maximum="256"/>
 
                 <Label Text="Blue Value: "/>
                 <Label x:Name="lblBlue"/>
@@ -45,7 +45,7 @@
                         MaximumTrackColor="{StaticResource Second}"
                         MinimumTrackColor="{StaticResource Tertiary}"
                         ValueChanged="Slider_ValueChanged"
-                        Maximum="255"/>
+                        Maximum="256"/>
                 
                 <Frame CornerRadius="25" HorizontalOptions="Center">
                     <HorizontalStackLayout>
@@ -62,7 +62,8 @@
                 </Frame>
                 <Button x:Name="btnRandom"
                         BackgroundColor="{StaticResource Primary}"
-                        Text="Generate Random Color"/>
+                        Text="Generate Random Color"
+                        Clicked="btnRandom_Clicked"/>
             </VerticalStackLayout>
         </Frame>
     </Grid>
