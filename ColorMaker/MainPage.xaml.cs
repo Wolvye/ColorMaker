@@ -1,5 +1,9 @@
 ﻿
 using System.Diagnostics;
+using System.Threading.Tasks;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+
 
 namespace ColorMaker
 {
@@ -7,6 +11,8 @@ namespace ColorMaker
     {
 
         bool isRandom; //Einfach damit im Output kein Dauerfeuer ist
+        string hexValue;
+
         public MainPage()
         {
             InitializeComponent();
@@ -37,7 +43,8 @@ namespace ColorMaker
         {
             Debug.WriteLine(color.ToString());
             Container.BackgroundColor = color;
-            lblHex.Text = color.ToHex();
+            hexValue= color.ToHex();
+            lblHex.Text = hexValue;
 
             
         }
@@ -55,6 +62,14 @@ namespace ColorMaker
             sldGreen.Value = color.Green * 255;
             sldBlue.Value = color.Blue * 255;
             isRandom = false;
+        }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Clipboard.SetTextAsync(hexValue);
+            var toast = Toast.Make("Color copied",
+                CommunityToolkit.Maui.Core.ToastDuration.Short,12);
+            await toast.Show();
         }
     }
 }
